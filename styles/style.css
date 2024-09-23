@@ -1,5 +1,385 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+/* -------------------------------------------------------------------------- */
+/*                                    Core                                    */
+/* -------------------------------------------------------------------------- */
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  font-family: var(--font-family);
+  color: var(--text-color);
+  font-size: 18px;
+  background-image: var(--cover-image);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.accented-shadow-text {
+  color: var(--accent-heading-color);
+  font-weight: 700;
+  font-size: var(--accent-heading-fs-mobile);
+  line-height: 82.5%;
+}
+
+@media (min-width: 1024px) {
+  .accented-shadow-text {
+    font-size: var(--accent-heading-fs-desktop);
+  }
+}
+
+.accented-background {
+  color: var(--accent-color-with-background);
+  background-color: var(--accent-color);
+}
+
+.accented-text {
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.accented-text_bold {
+  font-weight: 700;
+}
+
+.h2-heading {
+  margin: 0 0 20px;
+  color: var(--heading-color);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.accented-link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.paragraph-text {
+  margin: 10px 0 20px;
+  line-height: 130%;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Header                                   */
+/* -------------------------------------------------------------------------- */
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  align-items: center;
+}
+
+.decorative-rec-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--rec-decoration-color);
+  inset-inline-end: calc(var(--padding) + 10px);
+  inset-block-start: calc(var(--padding) + 2px);
+}
+
+.decorative-rec-icon::after {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 4px var(--rec-decoration-color);
+  background-color: var(--rec-decoration-color);
+  inline-size: 7px;
+  block-size: 7px;
+}
+
+.decorated-zone {
+  position: relative;
+  min-block-size: 100dvh;
+  --padding: 10px;
+  padding: var(--padding);
+}
+
+.decorated-zone::before, .decorated-zone::after {
+  content: "";
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.decorated-zone::before {
+  border-top: 1px solid var(--rec-bracket-color);
+  border-right: 1px solid var(--rec-bracket-color);
+  inset-inline-end: var(--padding);
+  inset-block-start: var(--padding);
+}
+
+.decorated-zone::after {
+  border-bottom: 1px solid var(--rec-bracket-color);
+  border-left: 1px solid var(--rec-bracket-color);
+  inset-block-end: var(--padding);
+  inset-inline-start: var(--padding);
+}
+
+@media (min-width: 768px) {
+  .decorated-zone {
+    --padding: 20px;
+  }
+}
+
+.header__theme-menu {
+  justify-self: end;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (min-width: 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: self-start;
+    margin: 0;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+}
+
+.header__theme-menu-button {
+  border: none;
+  padding: 1px 13px;
+  outline: 1px solid transparent;
+  color: var(--menu-color);
+  text-transform: lowercase;
+  background-color: transparent;
+  transition-duration: 0.2s;
+  transition-property: outline;
+  cursor: pointer;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--button-color-hover);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--accent-color);
+  outline: none;
+}
+
+.header__theme-menu-button_active {
+  outline: 1px solid var(--menu-color);
+  pointer-events: none;
+}
+
+.header__heading {
+  align-self: self-start;
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+@media (min-width: 768px) {
+  .header__heading {
+    margin-left: -20px;
+  }
+}
+
+.header__text {
+  justify-self: end;
+  margin: 0;
+  padding-right: 50px;
+  max-inline-size: 364px;
+}
+
+@media (min-width: 768px) {
+  .header__text {
+    margin: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header__text {
+    margin: 0;
+    padding: 0;
+    max-inline-size: 491px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Content                                  */
+/* -------------------------------------------------------------------------- */
+
+.content {
+  padding-inline: 10px;
+}
+
+@media (min-width: 768px) {
+  .content {
+    padding-inline: 20px;
+  }
+}
+
+/* ----------------------------------- Why ---------------------------------- */
+
+.why {
+  margin-block-start: 40px;
+}
+
+@media (min-width: 768px) {
+  .why {
+    display: grid;
+    grid-template-columns: 236px 1fr;
+    column-gap: var(--gap);
+    margin-block-start: 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .why {
+    grid-template-columns: 314px 1fr;
+  }
+}
+
+/* ---------------------------------- What ---------------------------------- */
+
+.what {
+  margin-block-start: 50px;
+}
+
+@media (min-width: 768px) {
+  .what {
+    margin-block-start: 60px;
+  }
+
+  .what__heading {
+    max-inline-size: 236px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .what__heading {
+    max-inline-size: 314px;
+  }
+
+  .what__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: var(--gap);
+  }
+}
+
+/* ----------------------------------- How ---------------------------------- */
+
+.how {
+  margin-block-start: 50px;
+}
+
+@media (min-width: 768px) {
+  .how {
+    display: grid;
+    grid-template-columns: 236px 1fr;
+    column-gap: var(--gap);
+    margin-block-start: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .how {
+    grid-template-columns: 314px 1fr;
+    margin-block-start: 60px;
+  }
+}
+
+.how__heading, .how__list-heading {
+  margin-bottom: 19px;
+}
+
+.how__list-title {
+  font-weight: 400;
+}
+
+/* --------------------------------- Gallery -------------------------------- */
+
+.gallery {
+  margin-block: 50px 36px;
+}
+
+.gallery__heading {
+  margin-bottom: 10px;
+}
+
+.gallery__list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.gallery__img {
+  inline-size: 100%;
+}
+
+@media (min-width: 768px) {
+  .gallery {
+    margin-block: 60px;
+  }
+
+  .gallery__heading {
+    margin-bottom: 20px;
+  }
+
+  .gallery__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 192px 230px 318px;
+    row-gap: 20px;
+    column-gap: var(--gap);
+  }
+
+  .gallery__list-item:nth-child(1) {
+    grid-column: 1 / 3;
+  }
+
+  .gallery__list-item:nth-child(2) {
+    grid-row-end: span 2;
+  }
+
+  .gallery__list-item:nth-child(3) {
+    grid-row-end: span 2;
+  }
+
+  .gallery__list-item:last-child {
+    grid-column: 2 / span 2;
+  }
+
+  .gallery__img {
+    object-fit: cover;
+    object-position: top;
+    block-size: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery {
+    /* на макете расхождение в gap 3 строки 25 вместо 20 */
+    margin-block: 60px 65px;
+  }
+
+  .gallery__list {
+    grid-template-rows: 260px 315px 428px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Footer                                   */
+/* -------------------------------------------------------------------------- */
+
+.footer {
+  display: grid;
+}
+
+.footer__text {
+  justify-self: center;
+  align-self: center;
+  text-shadow: 2px 2px 0 var(--accent-color);
 }
