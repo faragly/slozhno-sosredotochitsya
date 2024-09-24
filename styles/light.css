@@ -9,7 +9,6 @@
   --menu-color: #353430;
   --headers-color: #353430;
   --rec-bracket-color: #353430;
-  --rec-decoration-color: transparent;
 }
 
 @media (prefers-color-scheme: light) {
@@ -24,6 +23,5 @@
     --menu-color: #353430;
     --heading-color: #353430;
     --rec-bracket-color: #353430;
-    --rec-decoration-color: transparent;
   }
 }

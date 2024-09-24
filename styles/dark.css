@@ -10,5 +10,6 @@
   --headers-color: #ff0070;
   --rec-bracket-color: #ff0070;
   --rec-decoration-color: #ff0070;
+  --rec-icon-visibility: visible;
   --cover-image: url(../images/cover-image-dark.png);
 }
