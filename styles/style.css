@@ -246,12 +246,7 @@
     column-gap: 20px;
   }
 
-  .column-list__heading {
-    margin-block-end: 20px;
-  }
-
-  .column-list__item,
-  .column-list__heading {
+  .articles {
     grid-column-start: 2;
   }
 }
@@ -312,17 +307,13 @@
   margin-block-start: 50px;
 }
 
-.how .heading, .how .column-list__heading {
+.how .heading {
   margin-block-end: 19px;
 }
 
 @media (min-width: 768px) {
   .how {
     margin-block-start: 80px;
-  }
-
-  .how .heading {
-    grid-row-end: span 6;
   }
 }
 
